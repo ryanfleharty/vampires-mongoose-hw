@@ -33,28 +33,102 @@ mongoose.connection.on('error', () => {
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
-vampsData.forEach((vamp) => {
-  vampire.create({
-    name: vamp.name,
-    hair_color: vamp.hair_color,
-    eye_color: vamp.eye_color,
-    dob: vamp.dob,
-    loves: vamp.loves,
-    location: vamp.location,
-    gender: vamp.gender,
-    victims: vamp.victims,
-  }, (err, createdVampire) => {
-    // This is the callback function
-    // this is the response from mongodb
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(createdVampire);
-    }
-  });
-});
-// ### Add some new vampire data
+// vampsData.forEach((vamp) => {
+//   vampire.create({
+//     name: vamp.name,
+//     hair_color: vamp.hair_color,
+//     eye_color: vamp.eye_color,
+//     dob: vamp.dob,
+//     loves: vamp.loves,
+//     location: vamp.location,
+//     gender: vamp.gender,
+//     victims: vamp.victims,
+//   }, (err, createdVampire) => {
+//     // This is the callback function
+//     // this is the response from mongodb
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(createdVampire);
+//     }
+//   });
+// });
+// // ### Add some new vampire data
+// vampire.create({
+//   name: 'Blade',
+//   hair_color: 'Black',
+//   eye_color: 'Black',
+//   dob: new Date(19729, 0, 0, 0, 0),
+//   loves: ['hunting vampires', 'saving humans', 'Young Adult fiction'],
+//   location: 'London, England',
+//   gender: 'm',
+//   victims: 20,
+// }, (err, createdVampire) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(createdVampire);
+//   }
+// });
 
+// vampire.create({
+//   name: 'Dorian Gray',
+//   hair_color: 'Gray',
+//   eye_color: 'Gray',
+//   dob: new Date(1890, 0, 0, 0, 0),
+//   loves: ['art', 'beauty', 'youth', 'himself'],
+//   location: 'Paris, France',
+//   gender: 'm',
+//   victims: 2,
+// }, (err, createdVampire) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(createdVampire);
+//   }
+// });
+
+// vampire.create({
+//   name: 'Vincent Valentine',
+//   hair_color: 'Silver',
+//   eye_color: 'Pale Blue',
+//   dob: new Date(2340, 0, 0, 0, 0),
+//   loves: ['coffins', 'crimson trench coats', 'handguns'],
+//   location: 'Gaea',
+//   gender: 'm',
+//   victims: 7,
+// }, (err, createdVampire) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(createdVampire);
+//   }
+// });
+
+// vampire.create({
+//   name: 'Selene',
+//   hair_color: 'Black',
+//   eye_color: 'Electric Blue',
+//   dob: new Date(1383, 0, 0, 0, 0),
+//   loves: ['black leather skinsuits', 'dealing death', 'Michael Corvinus', 'Eve'],
+//   location: 'Hungary',
+//   gender: 'f',
+//   victims: 7,
+// }, (err, createdVampire) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(createdVampire);
+//   }
+});
 /////////////////////////////////////////////////
 // ## QUERYING
 /////////////////////////////////////////////////
