@@ -1,11 +1,12 @@
+const vampire = require('./models/vampire');
 // 1. Require your node modules
 const mongoose = require('mongoose');
 
 // 2. Require your model (and possibly your extra data source);
-const vampire = require('./populateVampires.js');
+const vampires = require('./populateVampires');
 
 // 3. Connect your database and collection name
-const connectionString = 'mongodb://localhost/test';
+const connectionString = 'mongodb://localhost/vampires';
 
 // 4. Open your mongoose connection
 mongoose.connect(connectionString, {
@@ -24,8 +25,79 @@ mongoose.connection.on('connected', () => {
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
+vampire.collection.insertMany(vampires,(err, data) => {
+    console.log("added provided vampire data")
+    mongoose.connection.close();
+  });
 
 // ### Add some new vampire data
+vampire.create({
+    name: 'Vlad the Impaler',
+    hair_color: 'blonde',
+    eye_color: 'blue',
+    dob: 1655,
+    loves: ['walks on the beach', 'death metal'],
+    location: 'Romania',
+    gender: 'm',
+    victims: 350
+    },(err, createdVamp) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(createdVamp);
+        }
+    })
+
+vampire.create({
+    name: 'Steven Danger',
+    hair_color: 'black',
+    eye_color: 'blue',
+    dob: 1985,
+    loves: ['walks on the beach', 'death metal'],
+    location: 'Canada',
+    gender: 'm',
+    victims: 100
+    },(err, createdVamp) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(createdVamp);
+        }
+    })
+
+vampire.create({
+    name: 'Buffy',
+    hair_color: 'blonde',
+    eye_color: 'brown',
+    dob: 1989,
+    loves: ['slaying', 'her cat salem'],
+    location: 'California',
+    gender: 'f',
+    victims: 1000
+    },(err, createdVamp) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(createdVamp);
+        }
+    })
+
+vampire.create({
+    name: 'Sookie Stackhouse',
+    hair_color: 'blonde',
+    eye_color: 'blue',
+    dob: 1980,
+    loves: ['reading folks minds', 'werewolfs'],
+    location: 'Bon Temps',
+    gender: 'f',
+    victims: 20
+    },(err, createdVamp) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(createdVamp);
+        }
+    })
 
 /////////////////////////////////////////////////
 // ## QUERYING
