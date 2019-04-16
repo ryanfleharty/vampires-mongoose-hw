@@ -77,13 +77,13 @@ const vampireData = require('./populateVampires');
 // });
 
 // vampire.create({
-//     name: 'John',
+//     name: 'Kensey',
 //     hair_color: 'blonde',
 //     eye_color: 'brown',
 //     dob: 1986, 
 //     loves: ['blood'],
 //     location: 'Denver',
-//     gender: 'm',
+//     gender: 'f',
 //     victims: 1
 // }, (err, createdVamp) => {
 //     if(err){
@@ -100,7 +100,7 @@ const vampireData = require('./populateVampires');
 //     dob: 1986, 
 //     loves: ['blood'],
 //     location: 'Denver',
-//     gender: 'm',
+//     gender: 'f',
 //     victims: 1
 // }, (err, createdVamp) => {
 //     if(err){
@@ -115,6 +115,51 @@ const vampireData = require('./populateVampires');
 // ## QUERYING
 /////////////////////////////////////////////////
 // ### Select by comparison
+
+// find all females
+// vampire.find({gender: 'f'}, (err, createdVamp) => {
+//         if(err){
+//             console.log(err);
+//         } else {
+//             console.log(createdVamp);
+//         }
+//     });
+
+// find all vamps with over 500 victims
+// vampire.find({victims: {$gt: '500'}}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// });
+
+// find all with fewer or equal to 150 victims
+// vampire.find({victims: {$lte: '150'}}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
+// find all that have a victim count is not equal to 210234
+// vampire.find({victims: {$ne: '210234'}}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
+// find all that have greater than 150 AND fewer than 500 victims
+// vampire.find({victims: {$gt: '150', $lt: '500'}}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
