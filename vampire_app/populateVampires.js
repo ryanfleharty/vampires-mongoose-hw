@@ -1,4 +1,4 @@
-[
+const vampires = [
   {
     name: 'Count Chocula',
     hair_color: 'brown',
@@ -134,5 +134,34 @@
     location: 'New York, New York, US',
     gender: 'm',
     title: 'Osiris of Sewer Rats'
+  },{
+    name: 'Barnabkjdhsfjkhdsakljf',
+    hair_color: 'brodafsfwn',
+    eye_color: 'brodfsfwn',
+    dob: new Date(1984, 6, 3, 13, 11),
+    loves: ['being mefdrry', 'being inssane', 'card fgames'],
+    location: 'New York,sdfas New York, US',
+    gender: 'm',
+    title: 'Osirddsais of Sewer Rats'
+  },{
+    name: 'BardfsnabasdjfnkjdsSpenser',
+    hair_color: 'broasdfwn',
+    eye_color: 'brdfdfown',
+    dob: new Date(1984, 6, 3, 13, 2),
+    loves: ['bedfasing merry', 'being insdfsane', 'carda games'],
+    location: 'New York, New York, US',
+    gender: 'f',
+    title: 'Osiris sddfof Sewer Rats'
+  },{
+    name: 'Bdfasdfdsfsdf',
+    hair_color: 'browdfasdn',
+    eye_color: 'brodsfaswn',
+    dob: new Date(1984, 6, 3, 13, 10),
+    loves: ['beifng merry', 'besddfing insane', 'cadrd games'],
+    location: 'New Yadfork, New York, UdasfS',
+    gender: 'm',
+    title: 'Osiridsfs of Sewer Rats'
   }
 ]
+
+module.exports = vampires;
