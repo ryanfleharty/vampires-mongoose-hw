@@ -22,17 +22,47 @@ const vampireSchema = new Schema({
 
   const Vampire = mongoose.model('Vampire', vampireSchema)
 
-
-
-//   Vampire.create({
-//       name: 'Boo',
-//       hair_color: 'black'
-//   }, (err, Vampire) => {
-//       if(err){
-//           console.log(err)
-//       } else {
-//           console.log(Vampire)
-//       }
-//   });
+  Vampire.create([
+  {
+   name: 'Veda',
+   hair_color: 'black'
+ }, (err, Vampire) => {
+  if(err){
+       console.log(err)
+  } else {
+      console.log(Vampire)
+    }
+},
+{
+    name: 'Kristen Stewart',
+    hair_color: 'black'
+}, (err, Vampire) => {
+    if(err){
+         console.log(err)
+    } else {
+        console.log(Vampire)
+      }
+  },
+{
+    name: 'Matt',
+    hair_color: 'brown'
+}, (err, Vampire) => {
+    if(err){
+         console.log(err)
+    } else {
+        console.log(Vampire)
+      }
+  },
+{
+    name: 'Adam',
+    hair_color: 'black'
+}, (err, Vampire) => {
+    if(err){
+         console.log(err)
+    } else {
+        console.log(Vampire)
+      }
+  },
+]);
 
   module.exports = Vampire;

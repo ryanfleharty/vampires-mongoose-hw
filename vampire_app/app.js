@@ -33,8 +33,16 @@ mongoose.connection.on('error', () => {
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
+const vamps = require('./populateVampires');
+
+Vampire.collection.insertMany(vamps,(err, vamps) => {
+  console.log("added provided vampire data")
+  mongoose.connection.close();
+});
+
 
 // ### Add some new vampire data
+
 
 /////////////////////////////////////////////////
 // ## QUERYING
