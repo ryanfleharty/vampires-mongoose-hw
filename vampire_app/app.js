@@ -1,4 +1,12 @@
 // 1. Require your node modules
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
+
 
 // 2. Require your model (and possibly your extra data source);
 
