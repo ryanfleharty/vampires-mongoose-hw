@@ -79,6 +79,107 @@ mongoose.connection.on('error', (err)=>{
 /////////////////////////////////////////////////
 // ### Select by comparison
 // Vampire.find({
+//   gener: 'f'
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   victims: {$gt: 500}
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   victims: {$lte: 150}
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   victims: 210234
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   victims: {$gt:{150}}
+//   victims: {$lt:{500}}
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+/////////////////////////////////////////////////
+// ### Select by exists or does not exist
+// Vampire.find({
+//   title: {$exists: true}
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   victims: {$exists: false}
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   title: {$exists: true},
+//   victims: {$exists: false}
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   victims: {$exists: true},
 //   victims: {$gt: 1000}
 // },
 // (err,foundVamp)=>{
@@ -89,25 +190,13 @@ mongoose.connection.on('error', (err)=>{
 //       }
 // }
 // )
-/////////////////////////////////////////////////
-// ### Select by exists or does not exist
-// Vampire.find({
-//   loves: {$exists: true}
-// },
-// (err,foundVamp)=>{
-//       if (err){
-//         console.log(err);
-//       } else {
-//         console.log(foundVamp);
-//       }
-// }
-// )
+
 /////////////////////////////////////////////////
 // ### Select with OR
 // Vampire.find({
 //   $or:[
-//   {loves: {$exists: true}},
-//   {eye_color: "blue"}
+//   {location: 'New York, New York, US'},
+//   {location: "New Orleans, Louisiana, US"}
 // ]
 // },
 // (err,foundVamp)=>{
@@ -118,6 +207,82 @@ mongoose.connection.on('error', (err)=>{
 //       }
 // }
 // )
+
+// Vampire.find({
+//   $or:[
+//   {location: 'New York, New York, US'},
+//   {location: "New Orleans, Louisiana, US"}
+// ]
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   $or:[
+//   {location: 'New York, New York, US'},
+//   {location: "New Orleans, Louisiana, US"}
+// ]
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   $or:[
+//   {loves: {$all: ['brooding']}},
+//   {loves: {$all: ['being tragic']}}
+// ]
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   $or:[
+//   {victims: {$gt: 1000}},
+//   {loves: {$all: ['marshmmallows']}}
+// ]
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
+// Vampire.find({
+//   $or:[
+//   {hair_color: 'red'},
+//   {eye_color: 'green'}
+// ]
+// },
+// (err,foundVamp)=>{
+//       if (err){
+//         console.log(err);
+//       } else {
+//         console.log(foundVamp);
+//       }
+// }
+// )
+
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
