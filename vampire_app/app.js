@@ -266,6 +266,60 @@ const Vampire = require('./models/vampire');
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
+// 1
+// vampire.find(
+//     {
+//         $or: [{
+//             loves: 'frilly shirtsleeves', 
+//             loves: 'frilly collars'
+//         }]}, (err, found) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(found)
+//     }
+// }); 
+
+// 2
+// vampire.find(
+//     {
+//         loves: 'brooding'
+//         }, (err, found) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(found)
+//     }
+// }); 
+
+// 3
+// vampire.find({
+//     $or: [{
+//         loves: 'appearing innocent',
+//         loves: 'trickery',
+//         loves: 'lurking in rotting mansions',
+//         loves: 'R&B music',
+//     }]}, (err, found) => {
+//         if (err){
+//             console.log(err);
+//         } else {
+//             console.log(found);
+//         }
+// });
+
+// 4
+// vampire.find({
+//         loves: 'fancy cloaks'}, 
+//         {$nin: 'top hats', 
+//         $nin: 'virgin blood'
+//     }, (err, found) => {
+//         if (err){
+//             console.log(err);
+//         } else {
+//             console.log(found);
+//         }
+// });
+
 /////////////////////////////////////////////////
 //### Negative Selection
 
