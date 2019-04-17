@@ -110,11 +110,16 @@ mongoose.connection.on('connected', () => {
 //2. db.vampires.find({victims: {$gt: 500}}).pretty();
 //3. db.vampires.find({victims: {$lte: 150}}).pretty();
 //4. db.vampires.find({victims: {$ne: 210234}}).pretty();
-//5. db.vampires.find({victims: {$gt: 150, $lt: 500}}).pretty()
+//5. db.vampires.find({victims: {$gt: 150, $lt: 500}}).pretty();
 
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+
+//1. db.vampires.find({title: {$exists: true}}).pretty();
+//2. db.vampires.find({title: {$exists: true}}).pretty();
+//3. db.vampires.find({ $and: [{title: {$exists: true}}, {victims: {$exists: false}}]}).pretty();
+//4. db.vampires.find({$and: [{victims: {$exists: true}}, {victims: {$gt: 1000}}]}).pretty();
 
 /////////////////////////////////////////////////
 // ### Select with OR
