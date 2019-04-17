@@ -1,5 +1,23 @@
 // 1. Require your node modules
+const connectionString = 'mongodb://localhost/test';
 
+//this creates the connection to the mongodb server
+mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+});
+
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose connect to ${connectionString}');
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.log('Mongoose disconnected to ${connectionString}');
+});
+
+mongoose.connection.on('error', (err) => {
+    console.log('Mongoose err ${err}');
+});
 // 2. Require your model (and possibly your extra data source);
 
 // 3. Connect your database and collection name
