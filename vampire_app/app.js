@@ -35,17 +35,112 @@ mongoose.connection.on('error', () => {
 // ### Add the vampire data that we gave you
 const vamps = require('./populateVampires');
 
-Vampire.collection.insertMany(vamps,(err, vamps) => {
-  console.log("added provided vampire data")
-  mongoose.connection.close();
-});
+// Vampire.collection.insertMany(vamps,(err, vamps) => {
+//   console.log("added provided vampire data")
+//   mongoose.connection.close();
+// });
 
 
 // ### Add some new vampire data
-
+// Vampire.create([
+//   {
+//    name: 'Veda',
+//    hair_color: 'black'
+//  }, (err, Vampire) => {
+//   if(err){
+//        console.log(err)
+//   } else {
+//       console.log(Vampire)
+//     }
+// },
+// {
+//     name: 'Kristen Stewart',
+//     hair_color: 'black'
+// }, (err, Vampire) => {
+//     if(err){
+//          console.log(err)
+//     } else {
+//         console.log(Vampire)
+//       }
+//   },
+// {
+//     name: 'Matt',
+//     hair_color: 'brown'
+// }, (err, Vampire) => {
+//     if(err){
+//          console.log(err)
+//     } else {
+//         console.log(Vampire)
+//       }
+//   },
+// {
+//     name: 'Adam',
+//     hair_color: 'black'
+// }, (err, Vampire) => {
+//     if(err){
+//          console.log(err)
+//     } else {
+//         console.log(Vampire)
+//       }
+//   },
+// ]);
 
 /////////////////////////////////////////////////
 // ## QUERYING
+Vampire.find({gender: 'f'}, (err, Vampire) => {
+    if(err){
+         console.log(err)
+    } else {
+        console.log(Vampire)
+      }
+  }
+);
+
+// Vampire.find({victims: {$gt: 500}}, (err, Vampire) => {
+//     if(err){
+//       console.log(err)
+//  } else {
+//      console.log(Vampire)
+//    }
+// }
+// );
+
+// Vampire.find({victims: {$lte: 150}}, (err, Vampire) => {
+//     if(err){
+//       console.log(err)
+//  } else {
+//      console.log(Vampire)
+//    }
+// }
+// );
+
+// Vampire.find({victims: {$ne: 210234}}, (err, Vampire) => {
+//     if(err){
+//       console.log(err)
+//  } else {
+//      console.log(Vampire)
+//    }
+// }
+// );
+
+// Vampire.find({victims: {$gt: 150, $lt: 500}}, (err, Vampire) => {
+//     if(err){
+//       console.log(err)
+//  } else {
+//      console.log(Vampire)
+//    }
+// }
+// );
+
+Vampire.find({victims: {$gt: 150, $lt: 500}}, (err, Vampire) => {
+  if(err){
+    console.log(err)
+} else {
+   console.log(Vampire)
+ }
+}
+);
+
 /////////////////////////////////////////////////
 // ### Select by comparison
 
