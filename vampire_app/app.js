@@ -164,6 +164,42 @@ const vampireData = require('./populateVampires');
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
 
+//select those with a title
+// vampire.find({title: {$exists: true}}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
+// select those without a victims property
+// vampire.find({victims: {$exists: false}}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
+// select those with a title and no victims
+// vampire.find({victims: {$exists: false}, title: {$exists: true}}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
+// select those with victims AND the victims they have are greater than 1000
+// vampire.find({victims: {$exists: true}, victims: {$gt: 1000}}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
 /////////////////////////////////////////////////
 // ### Select with OR
 
