@@ -322,6 +322,17 @@ const Vampire = require('./models/vampire');
 
 /////////////////////////////////////////////////
 //### Negative Selection
+// 1
+vampire.find({
+        loves: 'ribbons'}, 
+        {eye_color: {$ne: 'brown'} 
+    }, (err, found) => {
+        if (err){
+            console.log(err);
+        } else {
+            console.log(found);
+        }
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
