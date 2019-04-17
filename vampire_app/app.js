@@ -3,6 +3,7 @@ const mongoose =require('mongoose');
 
 // 2. Require your model (and possibly your extra data source);
 const Vampire = require('./models/vampire');
+
 // 3. Connect your database and collection name
 const connectionString = 'mongodb://localhost/vamp';
 // 4. Open your mongoose connection
@@ -21,6 +22,7 @@ mongoose.connection.on('disconnected', () =>{
 mongoose.connection.on('error', () =>{
     console.log(`Mongoose error: ${err}`);
 });
+
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
 
@@ -173,61 +175,113 @@ mongoose.connection.on('error', () =>{
 //   });
 
 // ### Add some new vampire data
-Vampire.create([
-    {
-    name: 'Nikki Sixx',
-    hair_color: 'black',
-    eye_color: 'grey',
-    dob: (1980, 10, 3, 0, 52),
-    loves: ['whiskey'],
-    location: 'Detroit, Michigan, US',
-    gender: 'm',
-    victims: 342 
-    },
-    {
-    name: ' Big Red',
-    hair_color: 'green',
-    eye_color: 'black',
-    dob: (1492, 5, 1, 2, 3),
-    loves:['mirrors, garlic, the sun'],
-    location: 'Ketchican, Alaska, US',
-    gender: 'm',
-    victims: 66
-    },
-    {
-    name: 'Cinder-hella',
-    hair_color: 'pink',
-    eye_color: 'sparkle',
-    dob: (1956, 10, 1, 8, 3),
-    loves:['shoes, the blood of men, pumpkins'],
-    location: 'DisneyWorld, Florida US',
-    gender: 'f',
-    victims: 984
-    },
-    {
-    name: 'Veronica',
-    hair_color: 'black',
-    eye_color: 'brown',
-    dob: (1994, 9, 13, 0, 3),
-    loves:['Heather Duke, Heather Chandler, Heather McNamara'],
-    location: 'Some HighSchool, US',
-    gender: 'f',
-    victims: 3
-    },
-], (err, createdVampire) => {
-    if(err){
-        console.log(err);
-    } else {
-        console.log(createdVampire);
-    }
+// Vampire.create([
+//     {
+//     name: 'Nikki Sixx',
+//     hair_color: 'black',
+//     eye_color: 'grey',
+//     dob: (1980, 10, 3, 0, 52),
+//     loves: ['whiskey'],
+//     location: 'Detroit, Michigan, US',
+//     gender: 'm',
+//     victims: 342 
+//     },
+//     {
+//     name: ' Big Red',
+//     hair_color: 'green',
+//     eye_color: 'black',
+//     dob: (1492, 5, 1, 2, 3),
+//     loves:['mirrors, garlic, the sun'],
+//     location: 'Ketchican, Alaska, US',
+//     gender: 'm',
+//     victims: 66
+//     },
+//     {
+//     name: 'Cinder-hella',
+//     hair_color: 'pink',
+//     eye_color: 'sparkle',
+//     dob: (1956, 10, 1, 8, 3),
+//     loves:['shoes, the blood of men, pumpkins'],
+//     location: 'DisneyWorld, Florida US',
+//     gender: 'f',
+//     victims: 984
+//     },
+//     {
+//     name: 'Veronica',
+//     hair_color: 'black',
+//     eye_color: 'brown',
+//     dob: (1994, 9, 13, 0, 3),
+//     loves:['Heather Duke, Heather Chandler, Heather McNamara'],
+//     location: 'Some HighSchool, US',
+//     gender: 'f',
+//     victims: 3
+//     },
+// ], (err, createdVampire) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVampire);
+//     }
 
 
-});
+// });
 
 /////////////////////////////////////////////////
 // ## QUERYING
 /////////////////////////////////////////////////
-// ### Select by comparison
+// // ### Select by comparison
+// Vampire.find({
+//     gender: 'f'
+// }, (err, foundVampire) => {
+//         if(err){
+//             console.log(err);
+//         } else {
+//             console.log(foundVampire);
+//         }
+// });
+
+Vampire.find({
+    victims: {$gt : 500}
+}, (err, foundVampire) => {
+    if(err){
+        console.log(err);
+    } else {
+        console.log(foundVampire);
+    }
+});
+
+Vampire.find({
+    victims: { $lte: 150}
+}, (err, foundVampire) => {
+    if(err){
+        console.log(err);
+    } else {
+        console.log(foundVampire);
+    }
+});
+
+Vampire.find({
+    victims: {$ne: 210234}
+}, (err, foundVampire) => {
+    if(err){
+        console.log(err);
+    } else {
+        console.log(foundVampire);
+    }
+});
+
+Vaampire.find({
+    victims: {$gt: 150, $lt: 500}
+}, (err, foundVampire) => {
+    if(err){
+        console.log(err);
+    } else {
+        console.log(foundVampire);
+    }
+});
+
+
+
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
