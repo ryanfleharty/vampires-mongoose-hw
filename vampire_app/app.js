@@ -179,6 +179,58 @@ const vamps = require('./populateVampires');
 
 /////////////////////////////////////////////////
 // ### Select with OR
+// Vampire.find(
+//   {$or: [
+//     {location: 'New York, New York, US'}, 
+//     {location: 'New Orleans, Louisiana, US'}
+//   ]}, (err, Vampire) => {
+//   if(err){
+//     console.log(err)
+// } else {
+//    console.log(Vampire)
+//  }
+// }
+// );
+
+// Vampire.find(
+//   {$or: [
+//     {loves: 'brooding'}, 
+//     {loves: 'being tragic'}
+//   ]}, (err, Vampire) => {
+//   if(err){
+//     console.log(err)
+// } else {
+//    console.log(Vampire)
+//  }
+// }
+// );
+
+// Vampire.find(
+//   {$or: [
+//     {victims: {$gt: 1000}},
+//     {loves: 'marshmallows'}
+//   ]}, (err, Vampire) => {
+//   if(err){
+//     console.log(err)
+// } else {
+//    console.log(Vampire)
+//  }
+// }
+// );
+
+
+Vampire.find(
+  {$or: [
+    {hair_color: 'red'},
+    {eye_color: 'green'}
+  ]}, (err, Vampire) => {
+  if(err){
+    console.log(err)
+} else {
+   console.log(Vampire)
+ }
+}
+);
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
