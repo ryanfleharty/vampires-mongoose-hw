@@ -152,16 +152,57 @@ const Vampire = require('./models/vampire');
 
 
 // 5
-vampire.find({victims: {$gt: 150, $lt: 500}}, (err, found) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(found)
-    }
-}); 
+// vampire.find({victims: {$gt: 150, $lt: 500}}, (err, found) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(found)
+//     }
+// }); 
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+
+// 1
+// vampire.find({title: {$exists: true}}, (err, found) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(found)
+//     }
+// }); 
+
+
+// 2
+// vampire.find({victims: {$exists: false}}, (err, found) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(found)
+//     }
+// }); 
+
+
+// 3
+// vampire.find(
+//     {title: {$exists: true}, 
+//     victims: {$exists: false} }, (err, found) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(found)
+//     }
+// }); 
+
+
+// 4
+// vampire.find({victims: {$exists: true}, victims: {$gt: 1000}}, (err, found) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(found)
+//     }
+// }); 
 
 /////////////////////////////////////////////////
 // ### Select with OR
