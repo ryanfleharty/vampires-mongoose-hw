@@ -124,6 +124,11 @@ mongoose.connection.on('connected', () => {
 /////////////////////////////////////////////////
 // ### Select with OR
 
+//1. db.vampires.find({$or: [{location: "New York, New York, US"}, {location: "New Orleans, Louisiana, US"}]}).pretty();
+//2. db.vampires.find({$or: [{loves:'brooding'}, {loves: 'being tragic'}]}).pretty();
+//3. db.vampires.find({$or: [{victims: {$gt: 1000}}, {loves: 'marshmallows'}]}).pretty();
+//4. db.vampires.find({$or: [{hair: 'red'}, {eyes: 'green'}]}).pretty();
+
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
