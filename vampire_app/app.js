@@ -43,6 +43,7 @@ mongoose.connection.on('error', () => {
 //     location: vamp.location,
 //     gender: vamp.gender,
 //     victims: vamp.victims,
+//     title: vamp.title,
 //   }, (err, createdVampire) => {
 //     // This is the callback function
 //     // this is the response from mongodb
@@ -129,7 +130,7 @@ mongoose.connection.on('error', () => {
 //     console.log(createdVampire);
 //   }
 // });
-// ///////////////////////////////////////////////
+///////////////////////////////////////////////
 // ## QUERYING
 // ///////////////////////////////////////////////
 // ### Select by comparison
@@ -157,7 +158,7 @@ mongoose.connection.on('error', () => {
 //     }
 //   });
 
-//3. have fewer than or equal to 150 victims
+// 3. have fewer than or equal to 150 victims
 // vampire.find({ victims: { $lte: 150 } },
 //   (err, queriedHobbyists) => {
 //   // This is the callback function
@@ -182,21 +183,66 @@ mongoose.connection.on('error', () => {
 //   });
 
 // 5. have greater than 150 AND fewer than 500 victims
-vampire.find({ victims: { $gt: 150, $lt: 500 } },
-  (err, queriedNotElders) => {
-  // This is the callback function
-  // this is the response from mongodb
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(queriedNotElders);
-    }
-  });
-
+// vampire.find({ victims: { $gt: 150, $lt: 500 } },
+//   (err, queriedBabies) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(queriedBabies);
+//     }
+//   });
 
 // ///////////////////////////////////////////////
 // ### Select by exists or does not exist
+// 1. have a title property
+// vampire.find({ title: { $exists: true } },
+//   (err, queriedEntitled) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(queriedEntitled);
+//     }
+//   });
 
+// 2. do not have a victims property
+// vampire.find({ victims: { $exists: false } },
+//   (err, queriedKind) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(queriedKind);
+//     }
+//   });
+
+// 3. have a title AND no victims
+// vampire.find({ victims: { $exists: false }, title: { $exists: true } },
+//   (err, queriedDeadlyTitles) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(queriedDeadlyTitles);
+//     }
+//   });
+
+// 4. have victims AND the victims they have are greater than 1000
+// vampire.find({ victims: { $exists: true, $gt: 1000 } },
+//   (err, queriedSuperVamps) => {
+//   // This is the callback function
+//   // this is the response from mongodb
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(queriedSuperVamps);
+//     }
+//   });
 // ///////////////////////////////////////////////
 // ### Select with OR
 

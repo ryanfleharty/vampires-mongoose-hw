@@ -10,6 +10,7 @@ const vampireSchema = new mongoose.Schema({
   location: { type: String, required: true, unique: false },
   gender: { type: String, required: true, unique: false },
   victims: { type: Number, min: 0, required: false, unique: false },
+  title: { type: String },
 });
 
 // Here where we instantiate our Model
