@@ -203,6 +203,42 @@ const vampireData = require('./populateVampires');
 /////////////////////////////////////////////////
 // ### Select with OR
 
+// select those that are from New York, New York, US or New Orleans, Louisiana, US
+// vampire.find({$or: [{location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US'}]}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
+// select those that love brooding or being tragic
+// vampire.find({$or: [{loves: 'brooding'}, {loves: 'being tragic'}]}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
+// select those that have more than 1000 victims or love marshmallows
+// vampire.find({$or: [{victims: {$gt: 1000}}, {loves: 'marshmallows'}]}, (err, createdVamp) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(createdVamp);
+//     }
+// }); 
+
+// select those that have red hair or green eyes
+vampire.find({$or: [{hair_color: 'red'}, {eye_color: 'green'}]}, (err, createdVamp) => {
+    if(err){
+        console.log(err);
+    } else {
+        console.log(createdVamp);
+    }
+}); 
+
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
