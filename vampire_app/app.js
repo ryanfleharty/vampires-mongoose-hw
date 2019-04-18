@@ -172,26 +172,53 @@ mongoose.connection.on('error', (err) => {
 // 	});
 // });
 
-console.log("Greater than 150, fewer than 500 victims:");
-Vampire.find({victims: {$gt: 150, $lt: 500}}, function(err, foundVampires)
-{
-	foundVampires.forEach(function(item)
-	{
-		console.log(item.name);
-	});
-});
-
-/////////////////////////////////////////////////
-// ### Select by exists or does not exist
-
-// console.log("All the vampires that exist:");
-// Vampire.find({name: {$exists: true}}, function(err, foundVampires)
+// console.log("Greater than 150, fewer than 500 victims:");
+// Vampire.find({victims: {$gt: 150, $lt: 500}}, function(err, foundVampires)
 // {
 // 	foundVampires.forEach(function(item)
 // 	{
 // 		console.log(item.name);
 // 	});
 // });
+
+/////////////////////////////////////////////////
+// ### Select by exists or does not exist
+
+// console.log("All the vampires that have a title:");
+// Vampire.find({title: {$exists: true}}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(`${item.name} - ${item.title}`);
+// 	});
+// });
+
+// console.log("All the vampires that do not have victims:");
+// Vampire.find({victims: {$exists: false}}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(`${item.name}`);
+// 	});
+// });
+
+// console.log("All the vampires that have a title AND no victims:");
+// Vampire.find({title: {exists: true}, victims: {$exists: false}}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(`${item.name}`);
+// 	});
+// });
+
+console.log("Have victims, and victims greater than 1000:");
+Vampire.find({victims: {$exists: true, $gt: 1000}}, function(err, foundVampires)
+{
+	foundVampires.forEach(function(item)
+	{
+		console.log(`${item.name}`);
+	});
+});
 
 /////////////////////////////////////////////////
 // ### Select with OR
