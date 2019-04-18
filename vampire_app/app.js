@@ -46,7 +46,7 @@ mongoose.connection.on('error', (err) => {
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
 
-
+// console.log("adding given objects:")
 // Vampire.collection.insertMany(vampireData,(err, data) => {
 // 	if (!err) {console.log("added provided vampire data");}
 // 	else {console.log("[app.js] MONGOOSE ERROR: -------- " + err);}
@@ -136,8 +136,62 @@ mongoose.connection.on('error', (err) => {
 /////////////////////////////////////////////////
 // ### Select by comparison
 
+// console.log("All the female vampires:");
+// Vampire.find({gender: 'f'}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(item.name);
+// 	});
+// });
+
+// console.log("Greater than 500 victims:");
+// Vampire.find({victims: {$gt: 500}}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(item.name);
+// 	});
+// });
+
+// console.log("Victims less than or equal to 150:");
+// Vampire.find({victims: {$lte: 150}}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(item.name);
+// 	});
+// });
+
+// console.log("Victim count not equal to 210234:");
+// Vampire.find({victims: {$ne: 210234}}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(item.name);
+// 	});
+// });
+
+console.log("Greater than 150, fewer than 500 victims:");
+Vampire.find({victims: {$gt: 150, $lt: 500}}, function(err, foundVampires)
+{
+	foundVampires.forEach(function(item)
+	{
+		console.log(item.name);
+	});
+});
+
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+
+// console.log("All the vampires that exist:");
+// Vampire.find({name: {$exists: true}}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(item.name);
+// 	});
+// });
 
 /////////////////////////////////////////////////
 // ### Select with OR
