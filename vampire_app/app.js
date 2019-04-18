@@ -211,20 +211,56 @@ mongoose.connection.on('error', (err) => {
 // 	});
 // });
 
-console.log("Have victims, and victims greater than 1000:");
-Vampire.find({victims: {$exists: true, $gt: 1000}}, function(err, foundVampires)
-{
-	foundVampires.forEach(function(item)
-	{
-		console.log(`${item.name}`);
-	});
-});
+// console.log("Have victims, and victims greater than 1000:");
+// Vampire.find({victims: {$exists: true, $gt: 1000}}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(`${item.name}`);
+// 	});
+// });
 
 /////////////////////////////////////////////////
 // ### Select with OR
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
+
+// console.log("From New York or New Orleans:");
+// Vampire.find({$or: [{location: "New York, New York, US"}, {location: "New Orleans, Louisiana, US"}]}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(`${item.name}`);
+// 	});
+// });
+
+// console.log("Love brooding or being tragic:");
+// Vampire.find({$or: [{loves: 'brooding'}, {loves: 'being tragic'}]}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(`${item.name}`);
+// 	});
+// });
+
+// console.log("Have more than 1000 victims or love marshmallows:");
+// Vampire.find({$or: [{victims: {$gt: 1000}}, {loves: 'marshmallows'}]}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(`${item.name}`);
+// 	});
+// });
+
+// console.log("Have red hair or green eyes:");
+// Vampire.find({$or: [{hair_color: 'red'}, {eye_color: 'green'}]}, function(err, foundVampires)
+// {
+// 	foundVampires.forEach(function(item)
+// 	{
+// 		console.log(`${item.name}`);
+// 	});
+// });
 
 /////////////////////////////////////////////////
 //### Negative Selection
