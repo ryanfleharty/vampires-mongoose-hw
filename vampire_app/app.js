@@ -5,8 +5,13 @@ const Vampire = require('./models/Vampire')
 
 // 3. Connect your database and collection name
 const connectionString = 'mongodb://localhost/vamp'
-// 4. Open your mongoose connection
 mongoose.connect(connectionString, { useNewUrlParser: true })
+// 4. Open your mongoose connection
+const vampireData = require('./populateVampires')
+Vampire.collection.insertMany(vampireData,(err, data) => {
+    console.log("added provided vampire data")
+    mongoose.connection.close();
+  });
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
 
