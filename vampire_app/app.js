@@ -164,18 +164,94 @@ mongoose.connection.on('error', (err) => {
     
 // have greater than 150 AND fewer than 500 victims
 
-Vampire.find(
-        {victims: {$gt: 150, $lte: 500}},
-        (err, Vampire)=>{
-            console.log(Vampire); // an array of articles
-        }
-    );
+// Vampire.find(
+//         {victims: {$gt: 150, $lte: 500}},
+//         (err, Vampire)=>{
+//             console.log(Vampire); // an array of articles
+//         }
+//     );
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
 
+//have a title property
+
+// Vampire.find(
+// 	{title: {$exists: true}},
+// 	(err, Vampire)=>{
+// 		console.log(Vampire); // an array of articles
+// 	}
+// );
+
+// do not have a victims property
+
+// Vampire.find(
+// 	{victims: {$exists: false}},
+// 	(err, Vampire)=>{
+// 		console.log(Vampire); // an array of articles
+// 	}
+// );
+
+// have a title AND no victims
+
+// Vampire.find({
+//     title: {$exists: true}, 
+//     victims:{$exists: false}
+// },(err, Vampire)=>{
+// 		console.log(Vampire); // an array of articles
+// 	}
+// );
+
+//WE ARE HERE
+// have victims AND the victims they have are greater than 1000
+// Vampire.find({
+//     victims: {$exists: true, $gt: 1000},
+// }, (err, Vampire) => {
+//     console.log(Vampire);
+// }
+// );
 /////////////////////////////////////////////////
 // ### Select with OR
+// are from New York, New York, US or New Orleans, Louisiana, US
+
+Vampire.find({ 
+$or: [
+    {location: 'New York, New York, US' 
+},  
+    {location:  'New Orleans, Louisiana, US'} ] 
+},(err, Vampire) => {
+    console.log(Vampire);
+});
+
+// love brooding or being tragic
+Vampire.find({ 
+    $or: [
+        {loves: 'brooding' 
+    },  
+        {loves:  'being tragic'} ] 
+    },(err, Vampire) => {
+        console.log(Vampire);
+    });
+
+// have more than 1000 victims or love marshmallows
+Vampire.find({ 
+    $or: [
+        {loves: 'marshmallows' 
+    },  
+        {victims: {$lte: 1000}} ] 
+    },(err, Vampire) => {
+        console.log(Vampire);
+    });
+
+// have red hair or green eyes
+Vampire.find({ 
+    $or: [
+        {hair_color: 'red' 
+    },  
+        {eye_color:  'green'} ] 
+    },(err, Vampire) => {
+        console.log(Vampire);
+    });
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values

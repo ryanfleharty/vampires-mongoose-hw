@@ -20,6 +20,7 @@ const vampireSchema = new mongoose.Schema({
   //creates in mongodb an 'articles' collection, and says 
   //all the documents that you put in it should look like the
   //schema defined above
+  //this creates it as a model 
   const Vampire = mongoose.model('Vampire', vampireSchema);
   
   //Article has ability to perform all CRUD actions
