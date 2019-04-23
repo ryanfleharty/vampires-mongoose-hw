@@ -283,7 +283,7 @@ Vampire.find({
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
 Vampire.find({
-    title: {$exist: true}
+    title: {$exists: true}
 }, (err, foundVampire) => {
     if(err){
         console.log(err);
@@ -293,7 +293,7 @@ Vampire.find({
 });
 
 Vampire.find({
-    victims: {$exist: false}
+    victims: {$exists: false}
 }, (err, foundVampire) => {
     if(err){
         console.log(err);
@@ -303,7 +303,7 @@ Vampire.find({
 });
 
 Vampire.find({
-    victims: {$exist: false}, title: {$exists: true} 
+    victims: {$exists: false}, title: {$exists: true} 
 }, (err, foundVampire) => {
     if(err){
         console.log(err);
