@@ -6,6 +6,9 @@ const Vampire = require('./models/Vampire')
 // 3. Connect your database and collection name
 const connectionString = 'mongodb://localhost/vamp'
 mongoose.connect(connectionString, { useNewUrlParser: true })
+
+//a schema is the structure/blueprint and the model is is the logic/functionality. models are within the schema.
+
 // 4. Open your mongoose connection
 const vampireData = require('./populateVampires')
 Vampire.collection.insertMany(vampireData,(err, data) => {
