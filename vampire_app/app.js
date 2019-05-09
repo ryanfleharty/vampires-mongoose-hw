@@ -148,7 +148,54 @@ Vampire.collection.insertMany(vampireData,(err, data) => {
 // })
 /////////////////////////////////////////////////
 // ### Select with OR
-
+// vampire.find(
+//   {
+//     $or: [{
+//       location:'New York, New York, US', location:'New Orleans, Louisiana, US'
+//     }], (error, vampire) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         console.log(vampire);
+//       }
+//     }
+//   })
+// vampire.find(
+//   {
+//     $or: [{
+//       loves:'brooding', loves:'being tragic'
+//     }], (error, vampire) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         console.log(vampire);
+//       }
+//     }
+//   })
+// vampire.find(
+//   {
+//     $or: [{
+//       victims:{$gt: 1000}, {loves:'marshmallows'}
+//     }], (error, vampire) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         console.log(vampire);
+//       }
+//     }
+//   })
+// vampire.find(
+//   {
+//     $or: [{
+//       hair_color:'red', {eye_color:'green'}
+//     }], (error, vampire) => {
+//       if (error) {
+//         console.log(error);
+//       } else {
+//         console.log(vampire);
+//       }
+//     }
+//   })
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
@@ -162,23 +209,11 @@ Vampire.collection.insertMany(vampireData,(err, data) => {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## UPDATE
-app.put('/:id', (req, res) => {
-  vampire.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedVampire) => {
-    updatedVampire.save((err, savedUpdatedVampire)
-    })
-  })
-})
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
-app.delete('/:id', (req, res) => {
-  vampire.findByIdAndRemove(req.params.id, (err, deletedVampire) => {
-    if(err){
-      res.send(err)
-     } else {
-    }
-  })
-})
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
